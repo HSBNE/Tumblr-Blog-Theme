@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Minimal Theme designed by Artur Kim (http://arturkim.com) for Tumblr | version 1.5 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{block:IndexPage}{Title}{/block:IndexPage}{block:SearchPage}Search results for: {SearchQuery}{/block:SearchPage}{block:PostSummary}{PostSummary}{/block:PostSummary}</title>
+    {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+    <link rel="shortcut icon" href="{Favicon}" />
+    <link rel="apple-touch-icon" href="{PortraitURL-128}"/>
+    <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/2.3.1/css/bootstrap.min.css" media ="screen">
+    <link href="//hsbne.org/assets/css/styles.css" rel="stylesheet" media="screen">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+
+    <!-- DEFAULT VARIABLES -->
+    <meta name="color:{PostType} Text" content="#555555"/>
+    <meta name="color:{PostType} Photo" content="#555555"/>
+    <meta name="color:{PostType} Photoset" content="#555555"/>
+    <meta name="color:{PostType} Quote" content="#555555"/>
+    <meta name="color:{PostType} Link" content="#555555"/>
+    <meta name="color:{PostType} Chat" content="#555555"/>
+    <meta name="color:{PostType} Video" content="#555555"/>
+    <meta name="color:{PostType} Audio" content="#555555"/>
+    <meta name="image:Header" content=""/>
+    <meta name="if:Show About Widget" content="1"/>
+    <meta name="if:Show Stuff I Like Widget" content="1"/>
+    <meta name="if:Show Latest Tweets Widget" content="0"/>
+    <meta name="if:Show People I Follow Widget" content="1"/>
+    <meta name="text:Number of Tweets" content="3"/>
+    <meta name="text:Google Analytics ID" content="" />
+    <meta name="text:Disqus Shortname" content="" />
+<style type="text/css">
+  #tumblr_controls {
+top: 100% !important;
+margin: -28px 0 0 0;
+right: 5px !important;
+position: fixed !important;
+}
+</style>
+</head>
+<body>
+<div id="header" class="container">
+
+  <a href="//hsbne.org/" class="brand pull-left">
+    <img src="//hsbne.org/assets/img/headerlogo.png" />
+    <span>HSBNE</span>
+  </a>
+
+  <ul class="nav nav-pills pull-right">
+  <li class="btn-group">
+    <a href="/" target="_blank" class="btn btn-link" style="display:inline-block;padding-right:0px;">Blog</a>
+   <a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown" style="display:inline-block;">
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+        <li><a href="/submit">Submit Post</a></li>
+        <li><a href="/archives">Archives</a></li>
+    </ul>
+</li>
+
+    <li><a href="http://wiki.hsbne.org">Wiki</a></li>
+    <li><a href="//hsbne.org/thespace.html">Our Campus</a>
+    <li><a href="//hsbne.org/join.html">Join Us!</a></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown">
+        What's on?
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="//hsbne.org/events/">Events</a></li>
+        <li><a href="//hsbne.org/classes/">Classes</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="/contact.html">
+        More Info
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="//hsbne.org/contact.html">Contact Us</a></li>
+        <li><a href="//hsbne.org/donate.html">Donate to HSBNE</a></li>
+        <li><a href="//hsbne.org/media.html">Media Information</a></li>
+        <li><a href="//hsbne.org/admin/">Member Information</a></li>
+      </ul>
+    </li>
+  </ul>
+
+</div>
+
+<div id="main" class="container">
+{block:Posts}
+{block:Photo}
+<div class="row" id="postcontainer">
+<div class="span1" id="posttype">
+<br />
+    <span class="icon-stack pull-right">
+        <i class="icon-sign-blank icon-stack-base"></i>
+        <i class="icon-camera icon-light"></i>
+    </span>
+</div>
+<div class="span8">
+        {LinkOpenTag}<img style="padding:5;" src="{PhotoURL-500}" />{LinkCloseTag}
+        {block:Caption}<blockquote style="padding: 5;"><p>{Caption}</p></blockquote>{/block:Caption}
+    </div>
+<div class="span3">
+{block:Date}<h1>{DayOfMonthWithZero}</h1><h4 style="border-style:none none solid none;">{Month}</h4>{/block:Date}
+<ul class="nav nav-list">
+<li><a href="{Permalink}"><i class="icon-fixed-width icon-link"></i> Permalink</a></li>
+<li><a href="http://www.facebook.com/share.php?u={Permalink}"><i class="icon-fixed-width icon-facebook-sign"></i> Share on Facebook</a></li>
+<li><a href="http://twitter.com/home?status={ShortURL}"><i class="icon-fixed-width icon-twitter-sign"></i> Tweet about this post</a></li>
+<li><a href="http://tmv.proto.jp/reblog.php?post_url={Permalink};"><i class="icon-fixed-width icon-share-alt"></i> Reblog on Tumblr</a></li>
+</ul>
+
+<br />
+{block:HasTags}<blockquote>{block:Tags}<a href="{TagURL}" class="badge badge-inverse"><i class="icon-fixed-width icon-tags"></i> {Tag}</a><span class="comma"> </span>{/block:Tags}</blockquote>{/block:HasTags}
+</div>
+</div>
+<hr />
+{/block:Photo}
+ 
+{block:Photoset}
+<div class="row" id="postcontainer">
+<div class="span1" id="posttype">
+<br />
+    <span class="icon-stack pull-right">
+        <i class="icon-sign-blank icon-stack-base"></i>
+        <i class="icon-facetime-video icon-light"></i>
+    </span>
+</div>
+<div class="span8">
+        {Photoset-500}
+        {block:Caption}
+            <div class="text">{Caption}</div>
+        {/block:Caption}
+    </div>
+<div class="span3">
+{block:Date}<h1>{DayOfMonthWithZero}</h1><h4 style="border-style:none none solid none;">{Month}</h4>{/block:Date}
+<ul class="nav nav-list">
+<li><a href="{Permalink}"><i class="icon-fixed-width icon-link"></i> Permalink</a></li>
+<li><a href="http://www.facebook.com/share.php?u={Permalink}"><i class="icon-fixed-width icon-facebook-sign"></i> Share on Facebook</a></li>
+<li><a href="http://twitter.com/home?status={ShortURL}"><i class="icon-fixed-width icon-twitter-sign"></i> Tweet about this post</a></li>
+<li><a href="http://tmv.proto.jp/reblog.php?post_url={Permalink};"><i class="icon-fixed-width icon-share-alt"></i> Reblog on Tumblr</a></li>
+</ul>
+
+<br />
+{block:HasTags}<blockquote>{block:Tags}<a href="{TagURL}" class="badge badge-inverse"><i class="icon-fixed-width icon-tags"></i> {Tag}</a><span class="comma"> </span>{/block:Tags}</blockquote>{/block:HasTags}
+</div>
+</div>
+<hr />
+{/block:Photoset}
+ 
+{block:Video}
+<div class="row" id="postcontainer">
+<div class="span1" id="posttype">
+<br />
+    <span class="icon-stack pull-right">
+        <i class="icon-sign-blank icon-stack-base"></i>
+        <i class="icon-facetime-video icon-light"></i>
+    </span>
+</div>
+<div class="span8">
+{Video-500}
+{block:Caption}<div class="text">{Caption}</div>{/block:Caption}
+</div>
+<div class="span3">
+{block:Date}<h1>{DayOfMonthWithZero}</h1><h4 style="border-style:none none solid none;">{Month}</h4>{/block:Date}
+<ul class="nav nav-list">
+<li><a href="{Permalink}"><i class="icon-fixed-width icon-link"></i> Permalink</a></li>
+<li><a href="http://www.facebook.com/share.php?u={Permalink}"><i class="icon-fixed-width icon-facebook-sign"></i> Share on Facebook</a></li>
+<li><a href="http://twitter.com/home?status={ShortURL}"><i class="icon-fixed-width icon-twitter-sign"></i> Tweet about this post</a></li>
+<li><a href="http://tmv.proto.jp/reblog.php?post_url={Permalink};"><i class="icon-fixed-width icon-share-alt"></i> Reblog on Tumblr</a></li>
+</ul>
+
+<br />
+{block:HasTags}<blockquote>{block:Tags}<a href="{TagURL}" class="badge badge-inverse"><i class="icon-fixed-width icon-tags"></i> {Tag}</a><span class="comma"> </span>{/block:Tags}</blockquote>{/block:HasTags}
+</div>
+</div>
+<hr />
+{/block:Video}
+ 
+{block:Audio}
+<div class="row" id="postcontainer">
+<div class="span1" id="posttype">
+<br />
+    <span class="icon-stack pull-right">
+        <i class="icon-sign-blank icon-stack-base"></i>
+        <i class="icon-list icon-light"></i>
+    </span>
+</div>
+<div class="span8">
+{AudioPlayerBlack}
+<div class="text">~ {PlayCountWithLabel}</div>
+{block:Caption}<div class="text">{Caption}</div>{/block:Caption}
+</div>
+<div class="span3">
+{block:Date}<h1>{DayOfMonthWithZero}</h1><h4 style="border-style:none none solid none;">{Month}</h4>{/block:Date}
+<ul class="nav nav-list">
+<li><a href="{Permalink}"><i class="icon-fixed-width icon-link"></i> Permalink</a></li>
+<li><a href="http://www.facebook.com/share.php?u={Permalink}"><i class="icon-fixed-width icon-facebook-sign"></i> Share on Facebook</a></li>
+<li><a href="http://twitter.com/home?status={ShortURL}"><i class="icon-fixed-width icon-twitter-sign"></i> Tweet about this post</a></li>
+<li><a href="http://tmv.proto.jp/reblog.php?post_url={Permalink};"><i class="icon-fixed-width icon-share-alt"></i> Reblog on Tumblr</a></li>
+</ul>
+
+<br />
+{block:HasTags}<blockquote>{block:Tags}<a href="{TagURL}" class="badge badge-inverse"><i class="icon-fixed-width icon-tags"></i> {Tag}</a><span class="comma"> </span>{/block:Tags}</blockquote>{/block:HasTags}
+</div>
+</div>
+<hr />
+{/block:Audio}
+ 
+{block:Quote}
+<div class="row" id="postcontainer">
+<div class="span1" id="posttype">
+<br />
+    <span class="icon-stack pull-right">
+        <i class="icon-sign-blank icon-stack-base"></i>
+        <i class="icon-quote-left icon-light"></i>
+    </span>
+</div>
+<div class="span8">
+<div class="title">“{Quote}”</div>
+{block:Source}<div class="text"><br>~ {Source}</div>{/block:Source}
+</div>
+<div class="span3">
+{block:Date}<h1>{DayOfMonthWithZero}</h1><h4 style="border-style:none none solid none;">{Month}</h4>{/block:Date}
+<ul class="nav nav-list">
+<li><a href="{Permalink}"><i class="icon-fixed-width icon-link"></i> Permalink</a></li>
+<li><a href="http://www.facebook.com/share.php?u={Permalink}"><i class="icon-fixed-width icon-facebook-sign"></i> Share on Facebook</a></li>
+<li><a href="http://twitter.com/home?status={ShortURL}"><i class="icon-fixed-width icon-twitter-sign"></i> Tweet about this post</a></li>
+<li><a href="http://tmv.proto.jp/reblog.php?post_url={Permalink};"><i class="icon-fixed-width icon-share-alt"></i> Reblog on Tumblr</a></li>
+</ul>
+
+<br />
+{block:HasTags}<blockquote>{block:Tags}<a href="{TagURL}" class="badge badge-inverse"><i class="icon-fixed-width icon-tags"></i> {Tag}</a><span class="comma"> </span>{/block:Tags}</blockquote>{/block:HasTags}
+</div>
+</div>
+<hr />
+{/block:Quote}
+ 
+{block:Text}
+<div class="row" id="postcontainer">
+{block:IndexPage}<div class="span1" id="posttype">
+<br />
+    <span class="icon-stack pull-right">
+        <i class="icon-sign-blank icon-stack-base"></i>
+        <i class="icon-list icon-light"></i>
+    </span>
+</div>{/block:IndexPage}
+<div class="span8">
+{block:Title}<a href="{Permalink}"><h3>{Title}</h3></a>{/block:Title}
+<p class="text">{Body}</p>
+</div>
+{block:IndexPage}<div class="span3">
+{block:Date}<h1>{DayOfMonthWithZero}</h1><h4 style="border-style:none none solid none;">{Month}</h4>{/block:Date}
+ <ul class="nav nav-list">
+<li><a href="{Permalink}"><i class="icon-fixed-width icon-link"></i> Permalink</a></li>
+<li><a href="http://www.facebook.com/share.php?u={Permalink}"><i class="icon-fixed-width icon-facebook-sign"></i> Share on Facebook</a></li>
+<li><a href="http://twitter.com/home?status={ShortURL}"><i class="icon-fixed-width icon-twitter-sign"></i> Tweet about this post</a></li>
+<li><a href="http://tmv.proto.jp/reblog.php?post_url={Permalink};"><i class="icon-fixed-width icon-share-alt"></i> Reblog on Tumblr</a></li>
+</ul>
+
+<br />
+{block:HasTags}<blockquote>{block:Tags}<a href="{TagURL}" class="badge badge-inverse"><i class="icon-fixed-width icon-tags"></i> {Tag}</a><span class="comma"> </span>{/block:Tags}</blockquote>{/block:HasTags}
+</div>
+{/block:IndexPage}
+</div>
+<hr />
+{/block:Text}
+ 
+{block:Answer}
+<div class="row" id="postcontainer">
+<div class="span1" id="posttype">
+<br />
+    <span class="icon-stack pull-right">
+        <i class="icon-sign-blank icon-stack-base"></i>
+        <i class="icon-list icon-light"></i>
+    </span>
+</div>
+<div class="span8">
+<div class="title">{Question}</div>
+<div class="text">~ {Asker}</div>
+<div class="text">{Answer}</div>
+{block:Answer}
+ 
+{block:Chat}
+<div class="row" id="postcontainer">
+<div class="span1" id="posttype">
+<br />
+    <span class="icon-stack pull-right">
+        <i class="icon-sign-blank icon-stack-base"></i>
+        <i class="icon-list icon-light"></i>
+    </span>
+</div>
+<div class="span8">
+{block:Title}<div class="title">{Title}</div>{/block:Title}
+<div class="text">
+{block:Lines}
+{block:Label}<strong>{Label}</strong>{/block:Label} {Line}<br />
+{/block:Lines}
+</div> <!--text-->
+</div>
+<div class="span3">
+{block:Date}<h1>{DayOfMonthWithZero}</h1><h4 style="border-style:none none solid none;">{Month}</h4>{/block:Date}
+<ul class="nav nav-list">
+<li><a href="{Permalink}"><i class="icon-fixed-width icon-link"></i> Permalink</a></li>
+<li><a href="http://www.facebook.com/share.php?u={Permalink}"><i class="icon-fixed-width icon-facebook-sign"></i> Share on Facebook</a></li>
+<li><a href="http://twitter.com/home?status={ShortURL}"><i class="icon-fixed-width icon-twitter-sign"></i> Tweet about this post</a></li>
+<li><a href="http://tmv.proto.jp/reblog.php?post_url={Permalink};"><i class="icon-fixed-width icon-share-alt"></i> Reblog on Tumblr</a></li>
+</ul>
+
+<br />
+{block:HasTags}<blockquote>{block:Tags}<a href="{TagURL}" class="badge badge-inverse"><i class="icon-fixed-width icon-tags"></i> {Tag}</a><span class="comma"> </span>{/block:Tags}</blockquote>{/block:HasTags}
+</div>
+</div>
+<hr />
+{/block:Chat}
+ 
+{block:Link}
+<div class="row" id="postcontainer">
+<div class="span1" id="posttype">
+<br />
+    <span class="icon-stack pull-right">
+        <i class="icon-sign-blank icon-stack-base"></i>
+        <i class="icon-list icon-light"></i>
+    </span>
+</div>
+<div class="span8">
+<div class="title"><a href="{URL}">{Name}</a></div>
+{block:Description}
+<div class="text">{Description}</div>
+{/block:Description}
+</div>
+<div class="span3">
+{block:Date}<h1>{DayOfMonthWithZero}</h1><h4 style="border-style:none none solid none;">{Month}</h4>{/block:Date}
+<ul class="nav nav-list">
+<li><a href="{Permalink}"><i class="icon-fixed-width icon-link"></i> Permalink</a></li>
+<li><a href="http://www.facebook.com/share.php?u={Permalink}"><i class="icon-fixed-width icon-facebook-sign"></i> Share on Facebook</a></li>
+<li><a href="http://twitter.com/home?status={ShortURL}"><i class="icon-fixed-width icon-twitter-sign"></i> Tweet about this post</a></li>
+<li><a href="http://tmv.proto.jp/reblog.php?post_url={Permalink};"><i class="icon-fixed-width icon-share-alt"></i> Reblog on Tumblr</a></li>
+</ul>
+
+<br />
+{block:HasTags}<blockquote>{block:Tags}<a href="{TagURL}" class="badge badge-inverse"><i class="icon-fixed-width icon-tags"></i> {Tag}</a><span class="comma"> </span>{/block:Tags}</blockquote>{/block:HasTags}
+</div>
+</div>
+<hr />
+{/block:Link}
+ 
+{/block:Posts}
+
+<div id="footer" class="span12 footer">
+    {block:PreviousPage}
+        <a href="{PreviousPage}">&#171; Previous</a>
+    {/block:PreviousPage}{block:NextPage}
+        <a href="{NextPage}">Next &#187;</a>
+    {/block:NextPage}
+    <a href="/archive">Archive</a>
+</div>
+
+</div><!-- #postcontainer -->
+</div><!-- #main -->
+ </body>
+
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="//hsbne.org/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+</html>
